@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh  '/root/webProject/start.sh'
+                sh  'nohub java -jar /root/webProject/docker_spring_boot/docker_spring_boot.jar'
             }
         }
     }
