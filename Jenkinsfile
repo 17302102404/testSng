@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'mvn clean package'
+                sh 'mvn clean package'
             }
         }
         stage('Test') {
@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh  'nohup java -jar /root/webProject/docker_spring_boot/docker_spring_boot.jar'
+                sh  '/root/webProject/start.sh'
             }
         }
     }
