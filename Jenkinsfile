@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                sh  '/root/webProject/start.sh'
             }
         }
     }
