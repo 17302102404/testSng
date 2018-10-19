@@ -14,17 +14,17 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh  'echo "kaishi"
-                     cp -r /root/.jenkins/workspace/mypipe_line/target/docker_spring_boot.jar  /root/webProject/docker_spring_boot
-                     echo "diyi_success"
-                     PID=`jps -lm |  grep   docker |  awk  '{print $1}'`
+                sh  'echo kaishi'
+                sh   'cp -r /root/.jenkins/workspace/mypipe_line/target/docker_spring_boot.jar  /root/webProject/docker_spring_boot'
+                sh    'echo "diyi_success'
+                 sh    'PID=`jps -lm |  grep   docker |  awk  '{print $1}'`
                      if [ "$PID" != "" ];then
                         echo $PID
                         kill -9 $PID
-                     fi
-                     echo "jar_start"
-                     nohup java -jar /root/webProject/docker_spring_boot/docker_spring_boot.jar >>/root/webProject/docker_spring_boot/stderr.log 2>1 &
-                     echo "jar_success"'
+                     fi'
+                  sh   'echo jar_start'
+                  sh   'nohup java -jar /root/webProject/docker_spring_boot/docker_spring_boot.jar >>/root/webProject/docker_spring_boot/stderr.log 2>1 &'
+                  sh   'echo jar_success'
             }
         }
     }
